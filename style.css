@@ -395,8 +395,103 @@ body.lightbox-open {
    Media Queries
    ======================================== */
 @media (max-width: 768px) {
+    /* Navigation adjustments */
+    nav {
+        padding: 15px;
+    }
+    
+    nav ul li {
+        font-size: 10px;
+    }
+    
+    .work-submenu {
+        margin-top: 100px;
+        padding: 0 15px;
+    }
+    
+    .work-submenu ul li {
+        font-size: 10px;
+    }
+    
+    /* Container padding */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Work items spacing */
     .work-item {
-        margin-bottom: 80px;
+        margin-bottom: 60px;
+    }
+    
+    /* Work titles and captions */
+    .work-title {
+        font-size: 12px;
+        margin-left: 0;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .work-caption {
+        font-size: 10px;
+        margin-top: 5px;
+        max-width: 100%;
+    }
+    
+    /* Images and media stack */
+    .media-stack {
+        gap: 4px;
+    }
+    
+    .media-stack img {
+        max-height: 70vh;
+    }
+    
+    /* Video responsiveness */
+    .video-wrapper {
+        margin: 4px 0;
+    }
+    
+    /* Side-by-side image layout (Danse Pinéale) */
+    .work-item div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    
+    .work-item div[style*="display: flex"] img {
+        max-width: 100% !important;
+        flex: none !important;
+    }
+    
+    .work-item div[style*="display: flex"] div {
+        max-width: 100% !important;
+        flex: none !important;
+    }
+    
+    /* Spacers adjustment */
+    .spacer {
+        height: 30px;
+    }
+    
+    .spacer--medium {
+        height: 40px;
+    }
+    
+    .spacer--large {
+        height: 50px;
+    }
+    
+    /* Scroll-to-top button */
+    .scroll-top {
+        bottom: 15px;
+        left: 15px;
+        font-size: 18px;
+    }
+    
+    /* Contact page */
+    .contact-email {
+        font-size: 12px;
+        margin-top: 10%;
+        margin-left: 5%;
     }
 }
 
