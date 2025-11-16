@@ -163,12 +163,12 @@ nav a.active {
 }
 
 .scroll-top.visible {
-    opacity: 0.3;
+    opacity: 1.0;
     pointer-events: auto;
 }
 
 .scroll-top:hover {
-    opacity: 0.6;
+    opacity: 1.0;
 }
 
 /* ========================================
