@@ -1,0 +1,403 @@
+/* ========================================
+   Reset & Base Styles
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica;
+    background: #fff;
+    color: #000;
+    font-size: 11px;
+    line-height: 0.75;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* ========================================
+   CSS Variables
+   ======================================== */
+:root {
+    --project-gap: 50vh;
+    --title-gap: 34px;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 8px;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav a.active {
+    text-decoration: underline;
+}
+
+/* removed stray 'active' element selector */
+
+/* Work Submenu */
+.work-submenu {
+    margin: 120px 0 0 20px;
+    
+}
+
+.work-submenu ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.work-submenu li {
+    margin-bottom: 6px;
+    transform: translateX(4px) rotate(-1deg);
+}
+
+.work-submenu a {
+    color: #000;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 1.2;
+    display: inline-block;
+}
+
+.work-submenu a:hover,
+.work-submenu a.active {
+    text-decoration: underline;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+/* Generic spacer utility */
+.spacer {
+    width: 100%;
+    height: var(--spacer-height, 50vh);
+}
+
+.spacer--small {
+    --spacer-height: 20vh;
+}
+
+.spacer--medium {
+    --spacer-height: 40vh;
+}
+
+.spacer--large {
+    --spacer-height: 60vh;
+}
+
+/* ========================================
+   Media Stack (Vertical Layout)
+   ======================================== */
+.media-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.media-stack img {
+    max-height: 100vh;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.media-stack .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+}
+
+.media-stack .video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ========================================
+   Scroll to Top
+   ======================================== */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.scroll-top.visible {
+    opacity: 0.3;
+    pointer-events: auto;
+}
+
+.scroll-top:hover {
+    opacity: 0.6;
+}
+
+/* ========================================
+   Container
+   ======================================== */
+.container {
+    padding: 80px 20px 40px 20px;
+    max-width: 100%;
+}
+
+/* ========================================
+   CV Page
+   ======================================== */
+.cv-page {
+    max-width: 900px;
+    margin: 0;
+    padding: 120px 0 40px 40px;
+    line-height: 1.6;
+}
+
+.cv-page h2 {
+    font-size: 11px;
+    font-weight: 400;
+    margin-bottom: 11.7px;
+    margin-top: 23.4px;
+    text-transform: uppercase;
+}
+
+.cv-page h2:first-of-type {
+    margin-top: 0;
+}
+
+.cv-entry {
+    margin-bottom: 11.7px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+}
+
+.cv-year { font-size: 11px; text-align: left; text-transform: uppercase; }
+.cv-content { font-size: 11px; text-transform: uppercase; }
+.cv-content p { margin-bottom: 2.5px; }
+.cv-italic { font-style: italic; }
+.cv-email { margin-top: 23.4px; font-size: 11px; text-transform: uppercase; }
+
+@media (max-width: 768px) {
+    .cv-page { padding: 40px 30px; }
+    .cv-entry { grid-template-columns: 80px 1fr; gap: 15px; }
+}
+
+/* ========================================
+   Contact Page
+   ======================================== */
+.contact-email {
+    font-size: 14px;
+    line-height: 1.3;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+/* ========================================
+   Accueil (Homepage)
+   ======================================== */
+.accueil-container {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    margin-top: 120px;
+    display: block;
+}
+
+.accueil-content {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+}
+
+.accueil-image {
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.accueil-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* ========================================
+   Work Items
+   ======================================== */
+.work-item {
+    margin-bottom: 120px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.work-item + .work-item {
+    margin-top: var(--project-gap);
+}
+
+.work-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.work-image {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.work-image img {
+    max-height: 100vh;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.work-image.work-video {
+    aspect-ratio: 16/9;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* work-title/caption consolidated later in file */
+/* removed legacy carousel styles */
+
+/* ========================================
+   Work Title Styles
+   ======================================== */
+.work-title {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    width: 100%;
+    margin-left: -10%;
+    margin-top: var(--title-gap);
+    margin-bottom: var(--title-gap);
+    text-transform: uppercase;
+}
+
+/* Caption under work title */
+.work-caption {
+    margin-top: 6px;
+    font-size: 11px;
+    line-height: 1.3;
+    font-weight: 300;
+    max-width: 30em;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.work-caption--em {
+    font-style: italic;
+}
+
+/* Optional title spacing variants */
+.work-title--tight {
+    margin-top: 12px;
+}
+
+.work-title--loose {
+    margin-top: 40px;
+}
+
+.work-title--xloose {
+    margin-top: 64px;
+}
+
+/* ========================================
+   Work Description (Removed)
+   ======================================== */
+.work-description {
+    display: none;
+}
+
+/* ========================================
+   Lightbox (Image Zoom)
+   ======================================== */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    z-index: 1000;
+}
+
+.lightbox-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-overlay img {
+    max-width: 96vw;
+    max-height: 96vh;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+/* ========================================
+   Media Queries
+   ======================================== */
+@media (max-width: 768px) {
+    .work-item {
+        margin-bottom: 80px;
+    }
+}
+
+/* removed carousel indicator media query */

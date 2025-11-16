@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUENTIN BOUARD - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="active">QUENTIN BOUARD</li>
+            <li style="margin-bottom: 15px;"></li>
+            <li><a href="index.html">WORK</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+     <div class="container">
+        <div class="work-item">
+            <div class="work-left">
+                <div class="work-image">
+                    <img src="images\accueil.jpg" alt="Œuvre 1">
+                </div>
+            </div>
+        </div>
+     </div>
+
+        <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+        <div class="lightbox-overlay" id="lightbox" aria-hidden="true"><img alt=""></div>
+        <script>
+            (function(){
+                // Scroll-to-top
+                const btn = document.querySelector('.scroll-top');
+                function onScroll(){ if(window.scrollY > 500){ btn && btn.classList.add('visible'); } else { btn && btn.classList.remove('visible'); } }
+                window.addEventListener('scroll', onScroll); onScroll();
+
+                // Lightbox
+                const overlay = document.getElementById('lightbox');
+                const overlayImg = overlay ? overlay.querySelector('img') : null;
+                function openLightbox(src, alt){ if(!overlay || !overlayImg) return; overlayImg.src=src; overlayImg.alt=alt||''; overlay.classList.add('visible'); overlay.setAttribute('aria-hidden','false'); document.body.classList.add('lightbox-open'); }
+                function closeLightbox(){ if(!overlay) return; overlay.classList.remove('visible'); overlay.setAttribute('aria-hidden','true'); document.body.classList.remove('lightbox-open'); if(overlayImg){ overlayImg.src=''; } }
+                if(overlay){ overlay.addEventListener('click', closeLightbox); document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); }); if(overlayImg) overlayImg.addEventListener('click', (e)=>e.stopPropagation()); }
+                const imgs = document.querySelectorAll('.media-stack img, .work-image img');
+                imgs.forEach(img=>{ img.style.cursor='zoom-in'; img.addEventListener('click', ()=>openLightbox(img.src, img.alt)); });
+            })();
+        </script>
+</body>
+</html>

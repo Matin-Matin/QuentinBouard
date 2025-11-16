@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV — Quentin Bouard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="accueil.html">QUENTIN BOUARD</a></li>
+      <li style="margin-bottom:15px;"></li>
+      <li><a href="index.html">WORK</a></li>
+      <li><a href="cv.html" class="active">CV</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <main class="cv-page">
+    <h2>Formation</h2>
+
+    <div class="cv-entry">
+      <div class="cv-year">2025-2026</div>
+      <div class="cv-content"><p>École Nationale des Beaux-Arts de Paris</p></div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2023-2025</div>
+      <div class="cv-content"><p>École Nationale des Beaux-Arts de Lyon</p></div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2020-2021</div>
+      <div class="cv-content"><p>Master 1 de Philosophie, Éthique à Strasbourg (CEERE)</p></div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2019-2020</div>
+      <div class="cv-content"><p>Licence de Philosophie, Toulouse</p></div>
+    </div>
+
+    <h2>Stage / Assistance</h2>
+
+    <div class="cv-entry">
+      <div class="cv-year">2025</div>
+      <div class="cv-content"><p>Myriam Leowitz / Chorégraphe – Aide à la création d'une pièce pour Playground</p></div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2025</div>
+      <div class="cv-content">
+        <p>Florian Fouché / Plasticien – Montage de l'exposition</p>
+        <p class="cv-italic">SÉCURITÉ SOCIALE PRÉLUDE – Vies institutionnelles à Bétonsalon</p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2024</div>
+      <div class="cv-content">
+        <p>Florian Fouché / Plasticien – Assistance pour l'exposition</p>
+        <p class="cv-italic">FIN DE PARTIE PRÉLUDE au centre d'art GwinZegal</p>
+      </div>
+    </div>
+
+    <h2>Résidences / Expositions</h2>
+
+    <div class="cv-entry">
+      <div class="cv-year">2025</div>
+      <div class="cv-content">
+        <p>Fondation Antonio Ratti – CSAV Artists' Research Laboratory,</p>
+        <p class="cv-italic">Low Realisms dirigé par Ed Atkins</p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2025</div>
+      <div class="cv-content">
+        <p>Exposition collective, Petite Galerie Françoise Besson –</p>
+        <p class="cv-italic">En chair et en os</p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2025</div>
+      <div class="cv-content">
+        <p>Camping Lyon – Bryan Campbell</p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2024</div>
+      <div class="cv-content">
+        <p>Camping Lyon – Tatiana Julien</p>
+      </div>
+    </div>
+
+
+  </main>
+  <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+  <div class="lightbox-overlay" id="lightbox" aria-hidden="true"><img alt=""></div>
+  <script>
+    (function(){
+      // Scroll-to-top
+      const btn = document.querySelector('.scroll-top');
+      function onScroll(){ if(window.scrollY > 500){ btn && btn.classList.add('visible'); } else { btn && btn.classList.remove('visible'); } }
+      window.addEventListener('scroll', onScroll); onScroll();
+
+      // Lightbox
+      const overlay = document.getElementById('lightbox');
+      const overlayImg = overlay ? overlay.querySelector('img') : null;
+      function openLightbox(src, alt){ if(!overlay || !overlayImg) return; overlayImg.src=src; overlayImg.alt=alt||''; overlay.classList.add('visible'); overlay.setAttribute('aria-hidden','false'); document.body.classList.add('lightbox-open'); }
+      function closeLightbox(){ if(!overlay) return; overlay.classList.remove('visible'); overlay.setAttribute('aria-hidden','true'); document.body.classList.remove('lightbox-open'); if(overlayImg){ overlayImg.src=''; } }
+      if(overlay){ overlay.addEventListener('click', closeLightbox); document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); }); if(overlayImg) overlayImg.addEventListener('click', (e)=>e.stopPropagation()); }
+      const imgs = document.querySelectorAll('.media-stack img, .work-image img');
+      imgs.forEach(img=>{ img.style.cursor='zoom-in'; img.addEventListener('click', ()=>openLightbox(img.src, img.alt)); });
+    })();
+  </script>
+</body>
+</html>

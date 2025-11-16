@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WORK 2024 — Quentin Bouard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="accueil.html">QUENTIN BOUARD</a></li>
+      <li style="margin-bottom:15px;"></li>
+      <li><a href="index.html">WORK</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+  <div class="work-submenu">
+    <ul>
+      <li><a href="2024.html" class="active">2024</a></li>
+      <li><a href="2025.html">2025</a></li>
+      <li><a href="2026.html">2026</a></li>
+    </ul>
+  </div>
+  <div class="container">
+   
+    <!-- Retour d'expérience -->
+    <div class="work-item">
+      <div class="work-left">
+        <div class="media-stack">
+          <img src="images/2024/tapis1.jpg" alt="Image C1" />
+          <img src="images/2024/tapis2.png" alt="Image C2" />
+          <img src="images/2024/tapis3.png" alt="Image C3" />
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/gg-mZ6tfFIA?si=9nrDSJHoQ3rV2MVq" title="Vidéo C" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="work-title">Retour d'expérience — </div>
+        <div class="work-caption">Collaboration avec Brune de Maurin.</div>
+      </div>
+    <div class="spacer spacer--large"></div>
+
+      <!-- Danse pineale -->
+    <div class="work-item">
+      <div class="work-left">
+        <div class="media-stack">
+          <img src="images/2024/Dansepineale1.jpg" alt="Image C1" />
+          <img src="images/2024/Dansepineale2.jpg" alt="Image C2" />
+          <img src="images/2024/Dansepineale3.jpg" alt="Image C3" />
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_C" title="Vidéo C" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="work-title">Danse Pinéale —</div>
+        <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%;">
+          <div class="work-caption" style="flex: 1;">Séance en visio live avec un psychiatre secteur 1.
+Un problème de caméra cassée a été prétexté pour que le psychiatre ignore le procédé. Le public est placé face à la visio.
+L'analysé danse et dialogue par le microphone. Pinéale : adjectif en référence à Descartes, définissant
+la glande pinéale comme le point de rencontre de l'esprit et du corps.</div>
+          <img src="images/2024/dansepinealside.png" alt="Danse pinéale side" style="flex: 1; max-width: 50%; height: auto; object-fit: contain; cursor: zoom-in;">
+        </div>
+      </div>
+          <div class="spacer spacer--large"></div>
+
+    <!-- Arbre -->
+           <div class="work-item">
+            <div class="work-left">
+                <div class="media-stack">
+                    <img src="images/2024/arbrerobe.jpg" alt="Arbrerobe">
+                </div>
+                <div class="work-title">Articulation —</div>
+            </div>
+        </div>
+
+           <!--Panneau -->
+    <div class="work-item">
+      <div class="work-left">
+        <div class="media-stack">
+          <img src="images/2024/Panneau1.jpg" alt="Image C1" />
+          <img src="images/2024/Panneau2.jpg" alt="Image C2" />
+          <img src="images/2024/Panneau3.jpg" alt="Image C3" />
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/q9H8vE4yhzI?si=vzhnDmiIRBcFAqjm" title="Vidéo C" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="work-title"> Corps Tête Panneau —</div>
+        <div class="work-caption"></div>
+      </div>
+          <div class="spacer spacer--large"></div>
+
+          
+<!--lsd -->
+          <div class="work-item">
+            <div class="work-left">
+                <div class="media-stack">
+                    <img src="images/2024/lsd.png" alt="Récolte de larmes">
+                </div>
+                <div class="work-title">Synthése —</div>
+                <div class="work-caption">Récolte de larmes sur papier buvard
+conçu pour le stockage du LSD.
+Chaque larme est nommée selon
+l’initiale de son·sa producteur·ice.</div>
+            </div>
+        </div>
+        <!--doncontredon -->
+        <div class="work-item">
+            <div class="work-left">
+                <div class="media-stack">
+                    <img src="images/2024/doncontredon.png" alt="Don contre don">">
+                </div>
+                <div class="work-title">Don contre don —</div>
+            </div>
+        </div>
+
+        <!--T -->
+        <div class="work-item">
+            <div class="work-left">
+                <div class="media-stack">
+                    <img src="images/2024/t.png" alt="Don contre don">
+                </div>
+                <div class="work-title">T </div>
+            </div>
+        </div>
+
+        
+
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+  <div class="lightbox-overlay" id="lightbox" aria-hidden="true"><img alt=""></div>
+  <script>
+    (function(){
+      // Scroll-to-top
+      const btn = document.querySelector('.scroll-top');
+      function onScroll(){
+        if(window.scrollY > 500){ btn && btn.classList.add('visible'); } else { btn && btn.classList.remove('visible'); }
+      }
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+
+      // Lightbox
+      const overlay = document.getElementById('lightbox');
+      const overlayImg = overlay ? overlay.querySelector('img') : null;
+      function openLightbox(src, alt){
+        if(!overlay || !overlayImg) return;
+        overlayImg.src = src;
+        overlayImg.alt = alt || '';
+        overlay.classList.add('visible');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.classList.add('lightbox-open');
+      }
+      function closeLightbox(){
+        if(!overlay) return;
+        overlay.classList.remove('visible');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.classList.remove('lightbox-open');
+        if(overlayImg){ overlayImg.src = ''; }
+      }
+      if (overlay) {
+        overlay.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+        if (overlayImg) overlayImg.addEventListener('click', (e) => e.stopPropagation());
+      }
+      const imgs = document.querySelectorAll('.media-stack img, .work-image img');
+      imgs.forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => openLightbox(img.src, img.alt));
+      });
+    })();
+  </script>
+</body>
+</html>
