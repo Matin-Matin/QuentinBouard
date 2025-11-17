@@ -215,7 +215,11 @@ nav a.active {
 .cv-email { margin-top: 23.4px; font-size: 11px; text-transform: uppercase; }
 
 @media (max-width: 768px) {
-    .cv-page { padding: 40px 30px; }
+    .cv-page { 
+        padding: 40px 30px; 
+        margin-top: 80px;
+        padding-top: 60px;
+    }
     .cv-entry { grid-template-columns: 80px 1fr; gap: 15px; }
 }
 
