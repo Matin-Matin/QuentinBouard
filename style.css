@@ -28,6 +28,31 @@ html, body {
 }
 
 /* ========================================
+   Language Toggle
+   ======================================== */
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+}
+
+.lang-toggle a {
+    background: none;
+    border: none;
+    font-family: 'Helvetica Neue', Helvetica;
+    font-size: 11px;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+}
+
+.lang-toggle a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
    Navigation
    ======================================== */
 nav {
@@ -88,6 +113,13 @@ nav a.active {
 .work-submenu a:hover,
 .work-submenu a.active {
     text-decoration: underline;
+}
+
+.work-intro {
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 16px;
+    color: #666;
 }
 
 /* ========================================
@@ -516,6 +548,16 @@ body.lightbox-open {
         font-size: 12px;
         margin-top: 10%;
         margin-left: 5%;
+    }
+    
+    /* Language toggle mobile */
+    .lang-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .lang-toggle a {
+        font-size: 10px;
     }
 }
 
