@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>ABOUT — Quentin Bouard</title>
+    <link rel="stylesheet" href="../style.css?v=7">
+</head>
+<body class="portfolio-page about-page">
+    <header class="portfolio-header">
+        <a class="portfolio-name" href="index-en.html">QUENTIN BOUARD</a>
+        <a class="portfolio-language" href="../about.html">FR</a>
+    </header>
+    <main class="portfolio-layout">
+        <aside class="project-navigation" aria-label="Main navigation">
+            <a class="about-active" href="about-en.html">ABOUT</a>
+            <a href="contact-en.html">CONTACT</a>
+            <nav>
+                <a href="../index.html#alba">Alba</a>
+                <a href="../index.html#articulation">Articulation</a>
+                <a href="../index.html#danse-pineale">Danse pinéale</a>
+                <a href="../index.html#don-contre-don">Don contre don</a>
+                <a href="../index.html#feelings-are-fact">Feelings are fact</a>
+                <a href="../index.html#installation-amphiteatre">Installation Amphitéatre</a>
+                <a href="../index.html#retour-d-experience">Retour d'expérience</a>
+                <a href="../index.html#si-polie-soit-la-republique">Si polie soit la République</a>
+                <a href="../index.html#tada-theatre-de-sculpture">Tada - Théatre de sculpture</a>
+            </nav>
+        </aside>
+        <section class="about-content" id="about-content" aria-live="polite"><p>Loading...</p></section>
+    </main>
+    <script>
+        const accentColors = ['#c40000', '#cc1717', '#d02020', '#c92a2a', '#d13a2f'];
+        document.documentElement.style.setProperty('--accent-color', accentColors[Math.floor(Math.random() * accentColors.length)]);
+    </script>
+    <script>
+        const content = document.getElementById('about-content');
+        const fallbackText = `## RESIDENCIES / EXHIBITIONS
+2026 | Residency at Centro Luigi di Sarro, Rome – ARP 12 EDITION
+2026 | Bredin Prat Grant
+2026 | Et1celle Festival at La Gaîté Lyrique - Alba
+2025 | Performance at Musée d’Orsay - Camille Claudel,
+Art at Your Fingertips.
+2025 | Residency at Fondazione Antonio Ratti, Italy – CSAV Artists’ Research Laboratory,
+Low Realisms led by Ed Atkins.
+2025 | Group exhibition, Petite Galerie Françoise Besson –
+In the Flesh
+
+## EDUCATION
+2025-2026 | National School of Fine Arts of Paris
+2023-2025 | National School of Fine Arts of Lyon
+2020-2021 | Master 1 in Ethical Philosophy at Strasbourg (CEERE)
+
+## INTERNSHIPS / ASSISTANCE
+2025 | Myriam Leowitz / Choreographer – Assistance with the creation of a piece for Playground
+2025 | Florian Fouché / Visual Artist – Exhibition installation
+SÉCURITÉ SOCIALE PRÉLUDE – Institutional Lives at Bétonsalon
+2024 | Florian Fouché / Visual Artist – Assistance for the exhibition
+FIN DE PARTIE PRÉLUDE at the GwinZegal art centre`;
+        function renderAbout(text) {
+            content.innerHTML = text.trim().split(/\n\s*\n/).map((section) => {
+                const lines = section.split('\n');
+                const title = lines.shift().trim().replace(/^#+\s*/, '');
+                const entries = lines.reduce((groupedLines, line) => {
+                    if (line.includes(' | ') || groupedLines.length === 0) groupedLines.push(line.trim());
+                    else groupedLines[groupedLines.length - 1] += ` ${line.trim()}`;
+                    return groupedLines;
+                }, []);
+                return `<section class="about-section"><h1>${title}</h1>${entries.map((line) => {
+                    const separator = line.indexOf(' | ');
+                    if (separator < 0) return `<p class="about-continuation">${line}</p>`;
+                    return `<p><span>${line.slice(0, separator)}</span>${line.slice(separator + 3)}</p>`;
+                }).join('')}</section>`;
+            }).join('');
+        }
+        renderAbout(fallbackText);
+        fetch('../about-en.txt?v=3', { cache: 'no-store' }).then((response) => {
+            if (!response.ok) throw new Error('About text unavailable');
+            return response.text();
+        }).then(renderAbout).catch(() => {});
+    </script>
+</body>
+</html>

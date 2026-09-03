@@ -3,50 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>QUENTIN BOUARD</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=9">
 </head>
-<body>
-    <div class="lang-toggle">
-        <a href="../index.html">FR</a>
+<body class="portfolio-page">
+    <header class="portfolio-header">
+        <a class="portfolio-name" href="index-en.html">QUENTIN BOUARD</a>
+        <a class="portfolio-language" href="../index.html">FR</a>
+    </header>
+    <main class="portfolio-layout">
+        <aside class="project-navigation" aria-label="Projects">
+            <a href="about-en.html">ABOUT</a>
+            <a href="contact-en.html">CONTACT</a>
+            <nav id="project-navigation"></nav>
+        </aside>
+        <section class="project-view" id="project-view" aria-live="polite"></section>
+    </main>
+    <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" type="button" aria-label="Close">×</button><img alt="">
     </div>
-    <nav>
-        <ul>
-            <li><a href="index-en.html" class="active">QUENTIN BOUARD</a></li>
-            <li style="margin-bottom: 15px;"></li>
-            <li><a href="work-en.html">WORK</a></li>
-            <li><a href="cv-en.html">CV</a></li>
-            <li><a href="contact-en.html">CONTACT</a></li>
-        </ul>
-    </nav>
-     <div class="container">
-        <div class="work-item">
-            <div class="work-left">
-                <div class="work-image">
-                    <img src="../images/accueil.jpg" alt="Artwork 1">
-                </div>
-            </div>
-        </div>
-     </div>
-
-        <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
-        <div class="lightbox-overlay" id="lightbox" aria-hidden="true"><img alt=""></div>
-        <script>
-            (function(){
-                // Scroll-to-top
-                const btn = document.querySelector('.scroll-top');
-                function onScroll(){ if(window.scrollY > 500){ btn && btn.classList.add('visible'); } else { btn && btn.classList.remove('visible'); } }
-                window.addEventListener('scroll', onScroll); onScroll();
-
-                // Lightbox
-                const overlay = document.getElementById('lightbox');
-                const overlayImg = overlay ? overlay.querySelector('img') : null;
-                function openLightbox(src, alt){ if(!overlay || !overlayImg) return; overlayImg.src=src; overlayImg.alt=alt||''; overlay.classList.add('visible'); overlay.setAttribute('aria-hidden','false'); document.body.classList.add('lightbox-open'); }
-                function closeLightbox(){ if(!overlay) return; overlay.classList.remove('visible'); overlay.setAttribute('aria-hidden','true'); document.body.classList.remove('lightbox-open'); if(overlayImg){ overlayImg.src=''; } }
-                if(overlay){ overlay.addEventListener('click', closeLightbox); document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); }); if(overlayImg) overlayImg.addEventListener('click', (e)=>e.stopPropagation()); }
-                const imgs = document.querySelectorAll('.media-stack img, .work-image img');
-                imgs.forEach(img=>{ img.style.cursor='zoom-in'; img.addEventListener('click', ()=>openLightbox(img.src, img.alt)); });
-            })();
-        </script>
+    <script>
+        const projects = [
+            { name: 'Alba', images: ['image-01.png', 'image-02.png', 'image-03.jpg'] },
+            { name: 'Articulation', images: ['image-01.jpg'], video: false },
+            { name: 'Pineal Dance', folder: 'Danse pinéale', images: ['5.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg'] },
+            { name: 'Gift for Gift', folder: 'Don contre don', images: ['image-01.jpg'], video: false },
+            { name: 'Feelings are fact', images: ['image-01.jpg'], video: false },
+            { name: 'Népomucène', folder: 'Népomucène', images: ['image-01.png'], video: false },
+            { name: 'Amphitheatre Installation', folder: 'Installation Amphitéatre', images: ['Diplome_Page_01_Image_0001.jpg', 'Diplome_Page_02_Image_0001.jpg', 'Diplome_Page_03_Image_0001.jpg', 'Diplome_Page_04_Image_0001.jpg', 'Diplome_Page_05_Image_0001.jpg', 'Diplome_Page_06_Image_0001.jpg', 'Diplome_Page_07_Image_0001.jpg', 'Diplome_Page_08_Image_0001.jpg', 'Diplome_Page_09_Image_0001.jpg', 'Diplome_Page_10_Image_0001.jpg', 'Diplome_Page_11_Image_0001.jpg', 'Diplome_Page_12_Image_0001.jpg', 'Diplome_Page_13_Image_0001.jpg', 'Diplome_Page_014_Image_0009.jpg'], video: false },
+            { name: 'Return of Experience', folder: "Retour d'expérience", images: ['1.png', '2.png', '3.jpg'] },
+            { name: 'Si polie soit la République', folder: 'Si polie soit la République', images: ['1.png', '2.png', '3.jpg'] },
+            { name: 'Tada - Theatre of Sculpture', folder: 'Tada _ Théatre de sculpture', images: ['image-01.jpg', 'image-02.jpg', 'image-03.jpg', 'image-04.jpg', 'image-05.jpg', 'image-06.jpg', 'image-07.jpg', 'image-08.jpg', 'image-09.jpg', 'image-10.jpg', 'image-11.jpg', 'image-12.jpg', 'image-13.jpg', 'image-14.jpg', 'image-15.jpg', 'image-16.jpg', 'image-17.jpg', 'image-18.jpg', 'image-19.jpg', 'image-20.jpg', 'image-21.jpg', 'image-22.jpg', 'image-23.jpg', 'image-24.jpg', 'image-25.jpg', 'image-26.jpg', 'image-27.jpg', 'image-28.jpg', 'image-29.jpg', 'image-30.jpg', 'image-31.jpg', 'image-32.jpg', 'image-33.jpg', 'image-34.jpg', 'image-35.jpg', 'image-36.jpg', 'image-37.jpg', 'image-38.jpg', 'image-39.jpg', 'image-40.jpg', 'image-41.jpg', 'image-42.jpg', 'image-43.jpg', 'image-44.jpg', 'image-45.jpg', 'image-46.jpg', 'image-47.jpg', 'image-48.jpg', 'image-49.jpg', 'image-50.jpg'] }
+        ];
+        const projectNotes = {
+            'Alba': 'En collaboration avec Lino Jericot Garcia.',
+            'Pineal Dance': `Séance en visio live avec un psychiatre secteur 1.
+Un problème de caméra cassée a été prétexté pour
+que le psychiatre ignore le procédé. Le public est
+placé face à la visio. L’analysé danse et dialogue par
+le microphone.`,
+            'Feelings are fact': 'Récolte de larmes sur papier buvard conçu pour le stockage du LSD. Chaque larme est nommée selon l’initiale de son·sa producteur·ice.',
+            'Népomucène': `Pendant la résidence XXIX CSAV, suite à un deuil,
+chaque jour, j’ai ajouté des fleurs à la statut du saint
+Jean de Népomucène tournant le dos au lac de
+Como.`,
+            'Amphitheatre Installation': `L’identité nationale française est une structure en équilibre sur nos corps. Comme toute technique d’organisation sociale, elle déforme et informe la---chair. L’extrême droite l’érige comme naturelle et---droite ; elle creuse, désirante que les spectres du---fascisme se réincarnent.---En prenant l’amphithéâtre des Loges, je viens---frotter des gestes plastiques sur le théâtre d’une---opposition architecturale : l’équilibre entre une---masse et une figure. De là, j’incline le bureau central---comme une proposition symbolique et motrice.---Face à la crise actuelle de la culture et à la montée---du fascisme, que peuvent/doivent les formes, si ce---n’est (re)mettre en mouvement l’appareil sensible et---critique ?---Les horreurs de la Seconde Guerre mondiale,---et la guerre d’Algérie à sa suite, hantent. Le retour---au pire ne se combattra pas par la satire et la---tristesse, mais dans une joie motrice et malicieuse.`,
+            'Return of Experience': 'En collaboration avec Brune de Maurin.',
+            'Si polie soit la République': `L’identité nationale française est une structure
+en équilibre sur nos corps. Comme toute technique
+d’organisation sociale, elle déforme et informe la
+chair. L’extrême droite l’érige comme naturelle et
+droite ; elle creuse, désirante que les spectres du
+fascisme se réincarnent.
+En prenant l’amphithéâtre des Loges, je viens
+frotter des gestes plastiques sur le théâtre d’une
+opposition architecturale : l’équilibre entre une
+masse et une figure. De là, j’incline le bureau central
+comme une proposition symbolique et motrice.
+Face à la crise actuelle de la culture et à la montée
+du fascisme, que peuvent/doivent les formes, si ce
+n’est (re)mettre en mouvement l’appareil sensible et
+critique ?
+Les horreurs de la Seconde Guerre mondiale,
+et la guerre d’Algérie à sa suite, hantent. Le retour
+au pire ne se combattra pas par la satire et la
+tristesse, mais dans une joie motrice et malicieuse.`,
+            'Tada - Theatre of Sculpture': 'J’invite 18 artistes à venir présenter un objet pendant un spectacle. L’objet apparaît deux fois pendant un temps de contemplation. Il s’agit ici de détourner le dispositif d’attention propre au spectacle vivant (black box) pour faire l’expérience d’objets plastiques, autrement dit, d’un théâtre de sculptures.'
+        };
+        projectNotes['Amphitheatre Installation'] = 'L’identité nationale française est une structure en équilibre sur nos corps. Comme toute technique d’organisation sociale, elle déforme et informe la chair. L’extrême droite l’érige comme naturelle et droite ; elle creuse, désirante que les spectres du fascisme se réincarnent.---En prenant l’amphithéâtre des Loges, je viens frotter des gestes plastiques sur le théâtre d’une opposition architecturale : l’équilibre entre une masse et une figure. De là, j’incline le bureau central comme une proposition symbolique et motrice. Face à la crise actuelle de la culture et à la montée du fascisme, que peuvent/doivent les formes, si ce n’est (re)mettre en mouvement l’appareil sensible et critique ?---Les horreurs de la Seconde Guerre mondiale, et la guerre d’Algérie à sa suite, hantent. Le retour au pire ne se combattra pas par la satire et la tristesse, mais dans une joie motrice et malicieuse.';
+        projectNotes['Alba'] = 'In collaboration with Lino Jericot Garcia.';
+        projectNotes['Pineal Dance'] = 'Live video session with a sector 1 psychiatrist. A broken camera was used as a pretext for the psychiatrist to ignore the process. The audience is seated facing the video call. The person being analyzed dances and speaks through the microphone.';
+        projectNotes['Feelings are fact'] = 'Collection of tears on blotting paper designed for LSD storage. Each tear is named after the initial of its producer.';
+        projectNotes['Népomucène'] = 'During the XXIX CSAV residency, following a bereavement, each day I added flowers to the statue of Saint John of Nepomuk, facing away from Lake Como.';
+        projectNotes['Amphitheatre Installation'] = 'French national identity is a structure balanced on our bodies. Like any technique of social organization, it distorts and informs the flesh. The far right presents it as natural and straight; it hollows it out, desiring the spectres of fascism to be reincarnated.---At the Loges amphitheatre, I bring plastic gestures into contact with the theatre of an architectural opposition: the balance between a mass and a figure. From there, I tilt the central desk as a symbolic and motor proposition. Faced with the current crisis in culture and the rise of fascism, what can or must forms do, if not set the sensitive and critical apparatus back in motion?---The horrors of the Second World War, followed by the Algerian War, linger as ghosts. A return to the worst will not be fought through satire and sadness, but through a mischievous, joyful movement.';
+        projectNotes['Return of Experience'] = 'In collaboration with Brune de Maurin.';
+        projectNotes['Si polie soit la République'] = "I raise a French flag fixed to a metal partition post, balanced on my chin. I then descend the stairs of the Stalingrad metro station in Paris. The five-metre silhouette I compose cannot pass through the station entrance. The staging of national identity breaks against this place.";
+        projectNotes['Tada - Theatre of Sculpture'] = 'I invite 18 artists to present an object during a performance. The object appears twice during a period of contemplation. The aim is to divert the attention mechanism specific to live performance (black box) in order to experience plastic objects, in other words, a theatre of sculptures.';
+        projects.forEach((project) => project.note = projectNotes[project.name] || '');
+        projects.find((project) => project.name === 'Tada - Theatre of Sculpture').videoAfterFirst = true;
+        const formatNote = (note) => note.replace(/\s*---\s*/g, '\u0000').replace(/\s+/g, ' ').replace(/\u0000/g, '\n\n').trim();
+        const youtubeUrls = {
+            'Alba': '',
+            'Articulation': '',
+            'Pineal Dance': '',
+            'Gift for Gift': '',
+            'Feelings are fact': '',
+            'Amphitheatre Installation': '',
+            'Return of Experience': '',
+            'Si polie soit la République': 'https://www.youtube.com/embed/Eoz-hb305A8?si=aeGIusXeKFkTl-U6',
+            'Tada - Theatre of Sculpture': ''
+        };
+        const accentColors = ['#c40000', '#cc1717', '#d02020', '#c92a2a', '#d13a2f'];
+        const setAccentColor = () => document.documentElement.style.setProperty('--accent-color', accentColors[Math.floor(Math.random() * accentColors.length)]);
+        const navigation = document.getElementById('project-navigation');
+        const view = document.getElementById('project-view');
+        const slugify = (name) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        function toEmbedUrl(url) {
+            if (!url) return '';
+            try {
+                const parsedUrl = new URL(url);
+                if (parsedUrl.hostname === 'youtu.be') return `https://www.youtube.com/embed/${parsedUrl.pathname.slice(1)}${parsedUrl.search}`;
+                if (parsedUrl.hostname.includes('youtube.com') && parsedUrl.pathname === '/watch') {
+                    const videoId = parsedUrl.searchParams.get('v');
+                    if (!videoId) return url;
+                    parsedUrl.searchParams.delete('v');
+                    return `https://www.youtube.com/embed/${videoId}${parsedUrl.search}`;
+                }
+                return url;
+            } catch {
+                return url;
+            }
+        }
+        projects.forEach((project) => {
+            const link = document.createElement('a');
+            link.href = `#${slugify(project.name)}`;
+            link.textContent = project.name;
+            link.dataset.project = project.name;
+            navigation.appendChild(link);
+        });
+        function renderProject(project) {
+            setAccentColor();
+            document.title = `QUENTIN BOUARD — ${project.name.toUpperCase()}`;
+            const folder = project.folder || project.name;
+            const videoUrl = toEmbedUrl(youtubeUrls[project.name]);
+            const video = videoUrl ? `<figure class="project-video"><iframe src="${videoUrl}" title="Video — ${project.name}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>` : '';
+            const projectClass = ['feelings-are-fact', 'gift-for-gift'].includes(slugify(project.name)) ? ' feelings-project' : '';
+            view.innerHTML = `<div class="project-media${projectClass}">${project.images.map((image, index) => `<figure class="project-image${project.name === 'Pineal Dance' && index === 0 ? ' project-image--accueil' : ''}"><img src="../Nouveau site/${encodeURIComponent(folder)}/${image}" alt="${project.name}, image ${index + 1}" loading="eager"></figure>${project.videoAfterFirst && index === 0 ? video : ''}`).join('')}${project.videoAfterFirst ? '' : video}</div>`;
+            if (project.note) {
+                const noteElement = document.createElement('p');
+                noteElement.className = `project-note${project.name === 'Feelings are fact' ? ' feelings-note' : ''}`;
+                noteElement.textContent = formatNote(project.note);
+                const firstImage = view.querySelector('.project-image');
+                const videoElement = view.querySelector('.project-video');
+                (project.videoAfterFirst && videoElement ? videoElement : firstImage).after(noteElement);
+            }
+            navigation.querySelectorAll('a').forEach((link) => link.classList.toggle('active', link.dataset.project === project.name));
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+        function selectProject() {
+            const selected = projects.find((project) => slugify(project.name) === window.location.hash.slice(1)) || projects[0];
+            renderProject(selected);
+        }
+        window.addEventListener('hashchange', selectProject);
+        selectProject();
+        const overlay = document.getElementById('lightbox');
+        const overlayImage = overlay.querySelector('img');
+        const closeLightbox = () => { overlay.classList.remove('visible'); overlay.setAttribute('aria-hidden', 'true'); overlayImage.src = ''; };
+        view.addEventListener('click', (event) => { if (event.target.tagName === 'IMG') { overlayImage.src = event.target.src; overlayImage.alt = event.target.alt; overlay.classList.add('visible'); overlay.setAttribute('aria-hidden', 'false'); } });
+        overlay.addEventListener('click', closeLightbox);
+        overlay.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeLightbox(); });
+        overlayImage.addEventListener('click', (event) => event.stopPropagation());
+    </script>
 </body>
 </html>

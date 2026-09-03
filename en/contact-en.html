@@ -3,52 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Contact — Quentin Bouard</title>
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style.css?v=7" />
 </head>
-<body>
-  <div class="lang-toggle">
-    <a href="../contact.html">FR</a>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="index-en.html">QUENTIN BOUARD</a></li>
-      <li style="margin-bottom:15px;"></li>
-      <li><a href="work-en.html">WORK</a></li>
-      <li><a href="cv-en.html">CV</a></li>
-      <li><a href="contact-en.html" class="active">CONTACT</a></li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    <p class="contact-email">quentin.bouard@hotmail.fr</p>
-  </div>
-  <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
-  <div class="lightbox-overlay" id="lightbox" aria-hidden="true"><img alt=""></div>
+<body class="portfolio-page contact-page">
+  <header class="portfolio-header">
+    <a class="portfolio-name" href="index-en.html">QUENTIN BOUARD</a>
+    <a class="portfolio-language" href="../contact.html">FR</a>
+  </header>
+  <main class="portfolio-layout">
+    <aside class="project-navigation" aria-label="Main navigation">
+      <a href="about-en.html">ABOUT</a>
+      <a class="about-active" href="contact-en.html">CONTACT</a>
+      <nav id="project-navigation">
+        <a href="../index.html#alba">Alba</a>
+        <a href="../index.html#articulation">Articulation</a>
+        <a href="../index.html#danse-pineale">Danse pinéale</a>
+        <a href="../index.html#don-contre-don">Don contre don</a>
+        <a href="../index.html#feelings-are-fact">Feelings are fact</a>
+        <a href="../index.html#installation-amphiteatre">Installation Amphitéatre</a>
+        <a href="../index.html#retour-d-experience">Retour d'expérience</a>
+        <a href="../index.html#si-polie-soit-la-republique">Si polie soit la République</a>
+        <a href="../index.html#tada-theatre-de-sculpture">Tada - Théatre de sculpture</a>
+      </nav>
+    </aside>
+    <section class="about-content contact-content">
+      <p class="contact-email">quentin.bouard@hotmail.fr</p>
+    </section>
+  </main>
   <script>
-   
-   
-   
-   
-   
-   
-   
-   
-   (function(){
-      // Scroll-to-top
-      const btn = document.querySelector('.scroll-top');
-      function onScroll(){ if(window.scrollY > 500){ btn && btn.classList.add('visible'); } else { btn && btn.classList.remove('visible'); } }
-      window.addEventListener('scroll', onScroll); onScroll();
-
-      // Lightbox
-      const overlay = document.getElementById('lightbox');
-      const overlayImg = overlay ? overlay.querySelector('img') : null;
-      function openLightbox(src, alt){ if(!overlay || !overlayImg) return; overlayImg.src=src; overlayImg.alt=alt||''; overlay.classList.add('visible'); overlay.setAttribute('aria-hidden','false'); document.body.classList.add('lightbox-open'); }
-      function closeLightbox(){ if(!overlay) return; overlay.classList.remove('visible'); overlay.setAttribute('aria-hidden','true'); document.body.classList.remove('lightbox-open'); if(overlayImg){ overlayImg.src=''; } }
-      if(overlay){ overlay.addEventListener('click', closeLightbox); document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); }); if(overlayImg) overlayImg.addEventListener('click', (e)=>e.stopPropagation()); }
-      const imgs = document.querySelectorAll('.media-stack img, .work-image img');
-      imgs.forEach(img=>{ img.style.cursor='zoom-in'; img.addEventListener('click', ()=>openLightbox(img.src, img.alt)); });
-    })();
+    const accentColors = ['#c40000', '#cc1717', '#d02020', '#c92a2a', '#d13a2f'];
+    document.documentElement.style.setProperty('--accent-color', accentColors[Math.floor(Math.random() * accentColors.length)]);
   </script>
 </body>
 </html>

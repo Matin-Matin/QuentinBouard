@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>ABOUT — Quentin Bouard</title>
+    <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body class="portfolio-page about-page">
+    <header class="portfolio-header">
+        <a class="portfolio-name" href="index.html">QUENTIN BOUARD</a>
+        <a class="portfolio-language" href="en/about-en.html">EN</a>
+    </header>
+    <main class="portfolio-layout">
+        <aside class="project-navigation" aria-label="Navigation principale">
+            <a class="about-active" href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+            <nav>
+                <a href="index.html#alba">Alba</a>
+                <a href="index.html#articulation">Articulation</a>
+                <a href="index.html#danse-pineale">Danse pinéale</a>
+                <a href="index.html#don-contre-don">Don contre don</a>
+                <a href="index.html#feelings-are-fact">Feelings are fact</a>
+                <a href="index.html#installation-amphiteatre">Installation Amphitéatre</a>
+                <a href="index.html#retour-d-experience">Retour d'expérience</a>
+                <a href="index.html#si-polie-soit-la-republique">Si polie soit la République</a>
+                <a href="index.html#tada-theatre-de-sculpture">Tada - Théatre de sculpture</a>
+            </nav>
+        </aside>
+        <section class="about-content" id="about-content" aria-live="polite">
+            <p>Chargement...</p>
+        </section>
+    </main>
+    <script>
+        const accentColors = ['#c40000', '#cc1717', '#d02020', '#c92a2a', '#d13a2f'];
+        document.documentElement.style.setProperty('--accent-color', accentColors[Math.floor(Math.random() * accentColors.length)]);
+    </script>
+    <script>
+        const fallbackText = `## RÉSIDENCES / EXPOSITIONS
+    2026 | Résidence au Centro Luigi di Sarro, Rome – ARP 12 EDITION
+    2026 | Bourse Bredin Prat
+    2026 | Festival Et1celle à la La Gaîté Lyrique - Alba
+    2025 | Performance au Musée d’Orsay - Camille Claudel,
+    L’art au bout des doigts.
+    2025 | Résidence à la Fondation Antonio Ratti, Italie – CSAV Artists’ Research Laboratory,
+    Low Realisms dirigé par Ed Atkins.
+    2025 | Exposition collective, Petite Galerie Françoise Besson –
+    En chair et en os
+
+    ## FORMATION
+    2025-2026 | DNA Beaux-Arts de Paris
+    2023-2025 | École Nationale des Beaux-Arts de Lyon
+    2020-2021 | Master 1 de Philosophie Éthique à Strasbourg (CEERE)
+
+    ## STAGE / ASSISTANCE
+    2025 | Myriam Leowitz / Chorégraphe – Aide à la création d'une pièce pour Playground
+    2025 | Florian Fouché / Plasticien – Montage de l'exposition
+    SÉCURITÉ SOCIALE PRÉLUDE – Vies institutionnelles à Bétonsalon
+    2024 | Florian Fouché / Plasticien – Assistance pour l'exposition
+    FIN DE PARTIE PRÉLUDE au centre d'art GwinZegal`;
+        const content = document.getElementById('about-content');
+        function renderAbout(text) {
+            content.innerHTML = text.trim().split(/\n\s*\n/).map((section) => {
+                const lines = section.split('\n');
+                const title = lines.shift().trim().replace(/^#+\s*/, '');
+                const entries = lines.reduce((groupedLines, line) => {
+                    if (line.includes(' | ') || groupedLines.length === 0) groupedLines.push(line.trim());
+                    else groupedLines[groupedLines.length - 1] += ` ${line.trim()}`;
+                    return groupedLines;
+                }, []);
+                return `<section class="about-section"><h1>${title}</h1>${entries.map((line) => {
+                    const separator = line.indexOf(' | ');
+                    if (separator < 0) return `<p class="about-continuation">${line}</p>`;
+                    return `<p><span>${line.slice(0, separator)}</span>${line.slice(separator + 3)}</p>`;
+                }).join('')}</section>`;
+            }).join('');
+        }
+        renderAbout(fallbackText);
+        fetch('about.txt?v=3', { cache: 'no-store' }).then((response) => {
+            if (!response.ok) throw new Error('About text unavailable');
+            return response.text();
+        }).then(renderAbout).catch(() => {});
+    </script>
+</body>
+</html>
