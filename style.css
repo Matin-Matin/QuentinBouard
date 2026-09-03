@@ -126,7 +126,7 @@ a:hover {
 
 .project-note {
     width: min(100%, 34ch);
-    margin: 5vw 0 0 auto;
+    margin: calc(-7vw + 5px) 0 0 auto;
     font-size: 13px;
     line-height: 1.15;
     align-self: flex-end;
@@ -290,6 +290,10 @@ a:hover {
 
     .project-note.feelings-note {
         width: min(100%, 34ch);
-        margin-top: 16vw;
+        margin-top: calc(-16vw + 5px);
+    }
+
+    .project-note {
+        margin-top: calc(-16vw + 5px);
     }
 }
