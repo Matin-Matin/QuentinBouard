@@ -75,6 +75,12 @@ Como.`,
         const navigation = document.getElementById('project-navigation');
         const view = document.getElementById('project-view');
         const slugify = (name) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const languageLink = document.querySelector('.portfolio-language');
+        const englishSlugs = {};
+        function updateLanguageLink() {
+            const currentSlug = window.location.hash.slice(1) || slugify('Danse pinéale');
+            languageLink.href = `en/index-en.html#${englishSlugs[currentSlug] || currentSlug}`;
+        }
         function toEmbedUrl(url) {
             if (!url) return '';
             try {
@@ -119,6 +125,7 @@ Como.`,
             window.scrollTo({ top: 0, behavior: 'instant' });
         }
         function selectProject() {
+            updateLanguageLink();
             const selected = projects.find((project) => slugify(project.name) === window.location.hash.slice(1)) || projects.find((project) => project.name === 'Danse pinéale');
             renderProject(selected);
         }
