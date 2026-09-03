@@ -105,14 +105,14 @@ a:hover {
     display: block;
     width: auto;
     max-width: 100%;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 105px);
     margin: 0 auto;
     object-fit: contain;
     cursor: zoom-in;
 }
 
 .project-media .project-image:first-child {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 105px);
     display: flex;
     align-items: flex-start;
     justify-content: center;
