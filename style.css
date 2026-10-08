@@ -124,6 +124,19 @@ a:hover {
     max-height: none;
 }
 
+.project-image--captioned:first-child {
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-translation {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    opacity: 0.8;
+    text-align: center;
+}
+
 .project-note {
     width: min(100%, 34ch);
     margin: calc(-7vw + 5px) 0 0 auto;
