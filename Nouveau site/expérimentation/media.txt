@@ -1,0 +1,16 @@
+# Une image ou un lien YouTube par ligne.
+# JPEG avec EXIF : date de prise de vue utilisée automatiquement.
+# Pour une vidéo ou une image sans EXIF : AAAA-MM-JJ | nom-du-fichier.jpg ou URL YouTube.
+# Exemple : 2024-06-15 | https://youtu.be/identifiant-de-la-video
+2026-11-14 | éclair.png
+2026-11-14 | ciseaux .jpg
+2026-11-14 | Son en Manif.jpg
+https://youtu.be/EY2EMw_-qi8
+https://youtu.be/v12R4LHxDoY
+https://youtu.be/6q1hwS03XBU
+https://youtu.be/RnQVlM05Xmo
+https://youtu.be/tb3kbPp_fSk
+https://youtu.be/wFpM1a7GaKA
+https://youtu.be/scZZMLrDBEg
+https://youtu.be/ASuTTkZsGQ8
+https://youtu.be/q9H8vE4yhzI

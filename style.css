@@ -82,6 +82,25 @@ a:hover {
     color: var(--accent-color, #d00);
 }
 
+.project-navigation nav a.experimental-link {
+    margin-top: 20px;
+    color: #000;
+}
+
+.project-navigation nav a.experimental-link:hover,
+.project-navigation nav a.experimental-link:focus-visible {
+    color: #fff;
+}
+
+.project-navigation nav a.experimental-link.active {
+    color: var(--accent-color, #d00);
+}
+
+.project-navigation nav a.experimental-link:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
 .project-view,
 .about-content {
     grid-column: 2;
@@ -159,6 +178,52 @@ a:hover {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+.experimental-media.project-image {
+    width: min(100%, 980px);
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.experimental-media.project-image img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+}
+
+.experimental-media.project-image.experimental-media--portrait {
+    width: fit-content;
+}
+
+figure.experimental-media.project-image.experimental-media--portrait img {
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 180px);
+}
+
+.project-media .experimental-media.project-image:first-child {
+    flex-direction: column;
+    align-items: center;
+}
+
+.experimental-caption {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: right;
+}
+
+.project-error {
+    margin: 0;
+    color: #f66;
+}
+
+.project-warning {
+    margin: 0;
+    color: #e0b84c;
 }
 
 .about-content {
@@ -261,6 +326,11 @@ a:hover {
         margin-bottom: 8px;
     }
 
+    .project-navigation nav a.experimental-link {
+        flex-basis: 100%;
+        margin-top: 12px;
+    }
+
     .project-view,
     .about-content {
         padding: 30px 16px 55px;
@@ -290,6 +360,10 @@ a:hover {
         width: 100%;
         height: auto;
         max-height: calc(100vh - 220px);
+    }
+
+    figure.experimental-media.project-image.experimental-media--portrait img {
+        max-height: calc(100vh - 300px);
     }
 
     .project-image--accueil img {
